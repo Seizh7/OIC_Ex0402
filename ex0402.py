@@ -41,34 +41,36 @@ def ArctanDenom(d, ndigits):
 if __name__ == '__main__':
     st.title("Exercice 4.2")
 
-    date = st.date_input("Veuillez saisir une date de naissance : ")
-    dateString = date.strftime("%d") + date.strftime("%m") + date.strftime("%Y")
-    st.write(dateString)
+    date = st.date_input("Veuillez saisir une date de naissance : ", value=None)
+    if date:
+        dateString = date.strftime("%d") + date.strftime("%m") + date.strftime("%Y")
+        st.write(dateString)
 
-    # Use Machin's Formula to calculate pi.
-    pi = 4 * (4*ArctanDenom(5,1000000+10) - ArctanDenom(239,1000000+10)) 
+        # Use Machin's Formula to calculate pi.
+        pi = 4 * (4*ArctanDenom(5,1000000+10) - ArctanDenom(239,1000000+10)) 
 
-    # We calculated extra digits to compensate for roundoff error.
-    # Chop off the extra digits now.
-    pi //= 10**10
+        # We calculated extra digits to compensate for roundoff error.
+        # Chop off the extra digits now.
+        pi //= 10**10
 
-    piString = str(pi)
-    position = piString.find("07101993")
-    st.write(position)
+        piString = str(pi)
+        position = piString.find(date)
+        st.write(position)
 
-    st.write(f"La position de la date d'anniversaire dans le premier million de decimales est à la position {position}.")
+        st.write(f"La position de la date d'anniversaire dans le premier million de decimales est à la position {position}.")
 
-    # get weekday name
-    st.write(f"{date.strftime('%A')} {date.strftime('%B')} {date.strftime('%Y')}")
+        # get weekday name
+        st.write(f"{date.strftime('%A')} {date.strftime('%B')} {date.strftime('%Y')}")
+    
     sum20 = 0
     sum122 = 0
     for i in piString[1:22]:
         sum20 += str(i)
-    
     
 
     for i in piString[1:124]:
         sum122 += str(i)
 
     st.write(sum20, sum122)
+    
     st.video("https://www.youtube.com/watch?v=w-I6XTVZXww&feature=emb_title")
