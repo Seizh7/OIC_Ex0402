@@ -24,7 +24,6 @@
 # de tous les nombres entiers naturels est égal à -1/12.
 
 # Fonctions importées
-from datetime import datetime
 import streamlit as st
 
 def ArctanDenom(d, ndigits):
@@ -72,5 +71,5 @@ if __name__ == '__main__':
         sum122 += str(i)
 
     st.write(sum20, sum122)
-    
+
     st.video("https://www.youtube.com/watch?v=w-I6XTVZXww&feature=emb_title")
