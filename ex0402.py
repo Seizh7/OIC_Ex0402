@@ -25,7 +25,7 @@
 
 # Fonctions importées
 import streamlit as st
-
+import datetime
 def ArctanDenom(d, ndigits):
     # Calculates arctan(1/d) = 1/d - 1/(3*d^3) + 1/(5*d^5) - 1/(7*d^7) + ...
     total = term = (10**ndigits) // d
@@ -40,7 +40,7 @@ def ArctanDenom(d, ndigits):
 if __name__ == '__main__':
     st.title("Exercice 4.2")
 
-    date = st.date_input("Veuillez saisir une date de naissance : ", value=None)
+    date = st.date_input("Veuillez saisir une date de naissance : ", min_value=datetime.date(1900,1,1))
     
     clicked = st.button("Exécuter") # bouton pour lancer la recherche du nombre
     if clicked: 
