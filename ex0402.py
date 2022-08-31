@@ -56,9 +56,12 @@ if __name__ == '__main__':
 
         piString = str(pi)
         position = piString.find(dateString)
-        st.write(position)
+        if position == -1:
+            st.write("La date n'existe pas dans les décimaux de PI.")
+        else :
+            st.write(f"La position de la date d'anniversaire dans le premier million de decimales est à la position {position}.")
 
-        st.write(f"La position de la date d'anniversaire dans le premier million de decimales est à la position {position}.")
+        
 
         # get weekday name
         st.write(f"{date.strftime('%A')} {date.strftime('%B')} {date.strftime('%Y')}")
@@ -66,11 +69,10 @@ if __name__ == '__main__':
         sum20 = 0
         sum122 = 0
         for i in piString[1:22]:
-            sum20 += str(i)
-        
+            sum20 += int(i)
 
         for i in piString[1:124]:
-            sum122 += str(i)
+            sum122 += int(i)
 
         st.write(sum20, sum122)
 
