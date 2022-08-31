@@ -41,7 +41,9 @@ if __name__ == '__main__':
     st.title("Exercice 4.2")
 
     date = st.date_input("Veuillez saisir une date de naissance : ", value=None)
-    if date:
+    
+    clicked = st.button("Exécuter") # bouton pour lancer la recherche du nombre
+    if clicked: 
         dateString = date.strftime("%d") + date.strftime("%m") + date.strftime("%Y")
         st.write(dateString)
 
@@ -61,15 +63,15 @@ if __name__ == '__main__':
         # get weekday name
         st.write(f"{date.strftime('%A')} {date.strftime('%B')} {date.strftime('%Y')}")
     
-    sum20 = 0
-    sum122 = 0
-    for i in piString[1:22]:
-        sum20 += str(i)
-    
+        sum20 = 0
+        sum122 = 0
+        for i in piString[1:22]:
+            sum20 += str(i)
+        
 
-    for i in piString[1:124]:
-        sum122 += str(i)
+        for i in piString[1:124]:
+            sum122 += str(i)
 
-    st.write(sum20, sum122)
+        st.write(sum20, sum122)
 
     st.video("https://www.youtube.com/watch?v=w-I6XTVZXww&feature=emb_title")
