@@ -26,6 +26,8 @@
 # Fonctions importées
 import streamlit as st
 import datetime
+
+# source : https://gist.github.com/cosinekitty/a741924ca6ce88e85a0dfaa0eae8b39f#file-picrunch-py
 def ArctanDenom(d, ndigits):
     # Calculates arctan(1/d) = 1/d - 1/(3*d^3) + 1/(5*d^5) - 1/(7*d^7) + ...
     total = term = (10**ndigits) // d
@@ -47,11 +49,11 @@ if __name__ == '__main__':
         dateString = date.strftime("%d") + date.strftime("%m") + date.strftime("%Y")
         st.write(dateString)
 
-        # Use Machin's Formula to calculate pi.
+        # formule de Machin
         pi = 4 * (4*ArctanDenom(5,1000000+10) - ArctanDenom(239,1000000+10)) 
 
-        # We calculated extra digits to compensate for roundoff error.
-        # Chop off the extra digits now.
+        # Comme indiqué dans le code source du programme 'picrunch.py'
+        # il est conseillé de saisir une marge de plus 10 pour éviter une erreur dans l'arrondi
         pi //= 10**10
 
         piString = str(pi)
@@ -61,17 +63,15 @@ if __name__ == '__main__':
         else :
             st.write(f"La position de la date d'anniversaire dans le premier million de decimales est à la position {position}.")
 
-        
-
-        # get weekday name
+        # affiche le jour le mois et l'année
         st.write(f"{date.strftime('%A')} {date.strftime('%B')} {date.strftime('%Y')}")
     
         sum20 = 0
         sum122 = 0
-        for i in piString[1:22]:
+        for i in piString[2:24]:
             sum20 += int(i)
 
-        for i in piString[1:124]:
+        for i in piString[2:124]:
             sum122 += int(i)
 
         st.write(sum20, sum122)
