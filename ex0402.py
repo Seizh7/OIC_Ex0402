@@ -55,7 +55,7 @@ if __name__ == '__main__':
         pi //= 10**10
 
         piString = str(pi)
-        position = piString.find(date)
+        position = piString.find(dateString)
         st.write(position)
 
         st.write(f"La position de la date d'anniversaire dans le premier million de decimales est à la position {position}.")
